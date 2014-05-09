@@ -2,6 +2,8 @@ require 'rexml/document'
 require File.dirname(__FILE__) + '/lib/pow_app.rb'
 
 class AlfredPow
+  POWD_PATH = File.expand_path('~/Library/LaunchAgents/cx.pow.powd.plist')
+  FW_PATH = File.expand_path('/Library/LaunchDaemons/cx.pow.firewall.plist')
   
   def self.create(source_path)
     app = PowApp.new({
@@ -51,6 +53,35 @@ class AlfredPow
     else
       puts "That app does not exist"
     end
+  end
+
+  def self.load
+    %x{launchctl load #{POWD_PATH}}
+    %x{sudo launchctl load #{FW_PATH}}
+    %x{sudo launchctl start cx.pow.firewall}
+    puts 'launching pow'
+  rescue
+    puts "error #{$!}"
+  end
+
+  def self.unload
+    if fw = File.read(FW_PATH)
+      src, dst = fw.scan(/fwd .*?,(\d+).*?dst-port (\d+)/)[0]
+    end
+
+    src ||= 20559
+    dst ||= 80
+
+    %x{sudo unload #{FW_PATH}}
+    rule = %x{sudo ipfw show}.scan(/^0*(\d+).*,20559.*dst-port 80/)[0][0]
+    if rule
+      %x{sudo ipfw del #{rule}}
+    end
+
+    %x{launchctl unload #{POWD_PATH}}
+    puts 'stopping pow'
+  rescue
+    puts "error: #{$!}"
   end
 
   def self.list(keyword)

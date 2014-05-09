@@ -4,6 +4,8 @@
 <dict>
 	<key>bundleid</key>
 	<string></string>
+	<key>category</key>
+	<string>Productivity</string>
 	<key>connections</key>
 	<dict>
 		<key>01048255-0B9F-4F8C-8F8C-4E82333BC482</key>
@@ -36,11 +38,44 @@
 				<string></string>
 			</dict>
 		</array>
+		<key>2227C299-10BC-42A1-9E9E-FA82C867B644</key>
+		<array>
+			<dict>
+				<key>destinationuid</key>
+				<string>86E80F71-3C4D-41A4-94DE-564940DB6272</string>
+				<key>modifiers</key>
+				<integer>0</integer>
+				<key>modifiersubtext</key>
+				<string></string>
+			</dict>
+		</array>
 		<key>25E3DF98-2706-4D97-996C-E5839612AAFA</key>
 		<array>
 			<dict>
 				<key>destinationuid</key>
 				<string>0A371D54-06AF-4896-A246-8A3F10638FC3</string>
+				<key>modifiers</key>
+				<integer>0</integer>
+				<key>modifiersubtext</key>
+				<string></string>
+			</dict>
+		</array>
+		<key>464C5AD2-ECA3-40AF-BADE-0B83AF464EF4</key>
+		<array>
+			<dict>
+				<key>destinationuid</key>
+				<string>EEF3BE1A-AC66-4FF3-A0B1-7D3F77C34EF9</string>
+				<key>modifiers</key>
+				<integer>0</integer>
+				<key>modifiersubtext</key>
+				<string></string>
+			</dict>
+		</array>
+		<key>48F35404-5EBB-46E5-B31A-88077B8E0923</key>
+		<array>
+			<dict>
+				<key>destinationuid</key>
+				<string>2227C299-10BC-42A1-9E9E-FA82C867B644</string>
 				<key>modifiers</key>
 				<integer>0</integer>
 				<key>modifiersubtext</key>
@@ -124,6 +159,17 @@
 				<string></string>
 			</dict>
 		</array>
+		<key>EEF3BE1A-AC66-4FF3-A0B1-7D3F77C34EF9</key>
+		<array>
+			<dict>
+				<key>destinationuid</key>
+				<string>86E80F71-3C4D-41A4-94DE-564940DB6272</string>
+				<key>modifiers</key>
+				<integer>0</integer>
+				<key>modifiersubtext</key>
+				<string></string>
+			</dict>
+		</array>
 	</dict>
 	<key>createdby</key>
 	<string>Tom Beynon (@Tom_Beynon)</string>
@@ -138,15 +184,87 @@
 		<dict>
 			<key>config</key>
 			<dict>
-				<key>autopaste</key>
+				<key>acceptsmulti</key>
 				<false/>
-				<key>clipboardtext</key>
-				<string>{query}</string>
+				<key>filetypes</key>
+				<array>
+					<string>public.folder</string>
+				</array>
+				<key>name</key>
+				<string>Create in Pow</string>
 			</dict>
 			<key>type</key>
-			<string>alfred.workflow.output.clipboard</string>
+			<string>alfred.workflow.trigger.action</string>
 			<key>uid</key>
-			<string>824CAAFC-6D29-4736-AF60-4BD96BEAE2EA</string>
+			<string>01048255-0B9F-4F8C-8F8C-4E82333BC482</string>
+			<key>version</key>
+			<integer>0</integer>
+		</dict>
+		<dict>
+			<key>config</key>
+			<dict>
+				<key>escaping</key>
+				<integer>63</integer>
+				<key>script</key>
+				<string>require './alfred_pow.rb'
+AlfredPow.create "{query}"</string>
+				<key>type</key>
+				<integer>2</integer>
+			</dict>
+			<key>type</key>
+			<string>alfred.workflow.action.script</string>
+			<key>uid</key>
+			<string>6DDB7F90-FE1C-4D75-A110-B92BE09E4D97</string>
+			<key>version</key>
+			<integer>0</integer>
+		</dict>
+		<dict>
+			<key>config</key>
+			<dict>
+				<key>argumenttype</key>
+				<integer>1</integer>
+				<key>escaping</key>
+				<integer>63</integer>
+				<key>keyword</key>
+				<string>pow browse</string>
+				<key>runningsubtext</key>
+				<string>Loading results…</string>
+				<key>script</key>
+				<string>require './alfred_pow.rb'
+AlfredPow.list "{query}"</string>
+				<key>subtext</key>
+				<string>Browse Pow app</string>
+				<key>title</key>
+				<string>pow browse {query}</string>
+				<key>type</key>
+				<integer>2</integer>
+				<key>withspace</key>
+				<true/>
+			</dict>
+			<key>type</key>
+			<string>alfred.workflow.input.scriptfilter</string>
+			<key>uid</key>
+			<string>5ADA0A22-076F-495E-8398-1697183B0A20</string>
+			<key>version</key>
+			<integer>0</integer>
+		</dict>
+		<dict>
+			<key>config</key>
+			<dict>
+				<key>escaping</key>
+				<integer>63</integer>
+				<key>script</key>
+				<string>require './alfred_pow.rb'
+AlfredPow.browse "{query}"</string>
+				<key>type</key>
+				<integer>2</integer>
+			</dict>
+			<key>type</key>
+			<string>alfred.workflow.action.script</string>
+			<key>uid</key>
+			<string>704C2CCD-DAB5-4032-9B80-D78BFCFC2258</string>
+			<key>version</key>
+			<integer>0</integer>
 		</dict>
 		<dict>
 			<key>config</key>
@@ -170,22 +288,8 @@
 			<string>alfred.workflow.output.notification</string>
 			<key>uid</key>
 			<string>86E80F71-3C4D-41A4-94DE-564940DB6272</string>
-		</dict>
-		<dict>
-			<key>config</key>
-			<dict>
-				<key>escaping</key>
-				<integer>63</integer>
-				<key>script</key>
-        <string>require './alfred_pow.rb'
-AlfredPow.xip "{query}"</string>
-				<key>type</key>
-				<integer>2</integer>
-			</dict>
-			<key>type</key>
-			<string>alfred.workflow.action.script</string>
-			<key>uid</key>
-			<string>0A371D54-06AF-4896-A246-8A3F10638FC3</string>
+			<key>version</key>
+			<integer>0</integer>
 		</dict>
 		<dict>
 			<key>config</key>
@@ -199,7 +303,7 @@ AlfredPow.xip "{query}"</string>
 				<key>runningsubtext</key>
 				<string>Loading results...</string>
 				<key>script</key>
-        <string>require './alfred_pow.rb'
+				<string>require './alfred_pow.rb'
 AlfredPow.list "{query}"</string>
 				<key>subtext</key>
 				<string>Destroy Pow app</string>
@@ -214,51 +318,8 @@ AlfredPow.list "{query}"</string>
 			<string>alfred.workflow.input.scriptfilter</string>
 			<key>uid</key>
 			<string>D18FC919-66FF-4536-8686-F483B7B6699B</string>
-		</dict>
-		<dict>
-			<key>config</key>
-			<dict>
-				<key>acceptsmulti</key>
-				<false/>
-				<key>filetypes</key>
-				<array>
-					<string>public.folder</string>
-				</array>
-				<key>name</key>
-				<string>Create in Pow</string>
-			</dict>
-			<key>type</key>
-			<string>alfred.workflow.trigger.action</string>
-			<key>uid</key>
-			<string>01048255-0B9F-4F8C-8F8C-4E82333BC482</string>
-		</dict>
-		<dict>
-			<key>config</key>
-			<dict>
-				<key>argumenttype</key>
-				<integer>1</integer>
-				<key>escaping</key>
-				<integer>63</integer>
-				<key>keyword</key>
-				<string>pow browse</string>
-				<key>runningsubtext</key>
-				<string>Loading results…</string>
-				<key>script</key>
-        <string>require './alfred_pow.rb'
-AlfredPow.list "{query}"</string>
-				<key>subtext</key>
-				<string>Browse Pow app</string>
-				<key>title</key>
-				<string>pow browse {query}</string>
-				<key>type</key>
-				<integer>2</integer>
-				<key>withspace</key>
-				<true/>
-			</dict>
-			<key>type</key>
-			<string>alfred.workflow.input.scriptfilter</string>
-			<key>uid</key>
-			<string>5ADA0A22-076F-495E-8398-1697183B0A20</string>
+			<key>version</key>
+			<integer>0</integer>
 		</dict>
 		<dict>
 			<key>config</key>
@@ -266,55 +327,7 @@ AlfredPow.list "{query}"</string>
 				<key>escaping</key>
 				<integer>63</integer>
 				<key>script</key>
-        <string>require './alfred_pow.rb'
-AlfredPow.browse "{query}"</string>
-				<key>type</key>
-				<integer>2</integer>
-			</dict>
-			<key>type</key>
-			<string>alfred.workflow.action.script</string>
-			<key>uid</key>
-			<string>704C2CCD-DAB5-4032-9B80-D78BFCFC2258</string>
-		</dict>
-		<dict>
-			<key>config</key>
-			<dict>
-				<key>escaping</key>
-				<integer>63</integer>
-				<key>script</key>
-        <string>require './alfred_pow.rb'
-AlfredPow.restart "{query}"</string>
-				<key>type</key>
-				<integer>2</integer>
-			</dict>
-			<key>type</key>
-			<string>alfred.workflow.action.script</string>
-			<key>uid</key>
-			<string>77277534-717F-407E-B6BB-49AFB3726A38</string>
-		</dict>
-		<dict>
-			<key>config</key>
-			<dict>
-				<key>escaping</key>
-				<integer>63</integer>
-				<key>script</key>
-        <string>require './alfred_pow.rb'
-AlfredPow.create "{query}"</string>
-				<key>type</key>
-				<integer>2</integer>
-			</dict>
-			<key>type</key>
-			<string>alfred.workflow.action.script</string>
-			<key>uid</key>
-			<string>6DDB7F90-FE1C-4D75-A110-B92BE09E4D97</string>
-		</dict>
-		<dict>
-			<key>config</key>
-			<dict>
-				<key>escaping</key>
-				<integer>63</integer>
-				<key>script</key>
-        <string>require './alfred_pow.rb'
+				<string>require './alfred_pow.rb'
 AlfredPow.destroy "{query}"</string>
 				<key>type</key>
 				<integer>2</integer>
@@ -323,6 +336,26 @@ AlfredPow.destroy "{query}"</string>
 			<string>alfred.workflow.action.script</string>
 			<key>uid</key>
 			<string>CDB226D6-2CBA-4BDD-880B-7B93B9027B8C</string>
+			<key>version</key>
+			<integer>0</integer>
+		</dict>
+		<dict>
+			<key>config</key>
+			<dict>
+				<key>escaping</key>
+				<integer>63</integer>
+				<key>script</key>
+				<string>require './alfred_pow.rb'
+AlfredPow.restart "{query}"</string>
+				<key>type</key>
+				<integer>2</integer>
+			</dict>
+			<key>type</key>
+			<string>alfred.workflow.action.script</string>
+			<key>uid</key>
+			<string>77277534-717F-407E-B6BB-49AFB3726A38</string>
+			<key>version</key>
+			<integer>0</integer>
 		</dict>
 		<dict>
 			<key>config</key>
@@ -336,7 +369,7 @@ AlfredPow.destroy "{query}"</string>
 				<key>runningsubtext</key>
 				<string>Loading results...</string>
 				<key>script</key>
-        <string>require './alfred_pow.rb'
+				<string>require './alfred_pow.rb'
 AlfredPow.list "{query}"</string>
 				<key>subtext</key>
 				<string>Restart Pow app</string>
@@ -351,6 +384,119 @@ AlfredPow.list "{query}"</string>
 			<string>alfred.workflow.input.scriptfilter</string>
 			<key>uid</key>
 			<string>EA45CD6B-E1DE-4F9E-B2D9-B0C528CD13FE</string>
+			<key>version</key>
+			<integer>0</integer>
+		</dict>
+		<dict>
+			<key>config</key>
+			<dict>
+				<key>escaping</key>
+				<integer>127</integer>
+				<key>script</key>
+				<string>require './alfred_pow.rb'
+AlfredPow.unload</string>
+				<key>type</key>
+				<integer>2</integer>
+			</dict>
+			<key>type</key>
+			<string>alfred.workflow.action.script</string>
+			<key>uid</key>
+			<string>EEF3BE1A-AC66-4FF3-A0B1-7D3F77C34EF9</string>
+			<key>version</key>
+			<integer>0</integer>
+		</dict>
+		<dict>
+			<key>config</key>
+			<dict>
+				<key>argumenttype</key>
+				<integer>2</integer>
+				<key>keyword</key>
+				<string>pow unload</string>
+				<key>subtext</key>
+				<string>Stop powd and remove its firewall rule</string>
+				<key>text</key>
+				<string>Unload pow</string>
+				<key>withspace</key>
+				<false/>
+			</dict>
+			<key>type</key>
+			<string>alfred.workflow.input.keyword</string>
+			<key>uid</key>
+			<string>464C5AD2-ECA3-40AF-BADE-0B83AF464EF4</string>
+			<key>version</key>
+			<integer>0</integer>
+		</dict>
+		<dict>
+			<key>config</key>
+			<dict>
+				<key>argumenttype</key>
+				<integer>2</integer>
+				<key>keyword</key>
+				<string>pow load</string>
+				<key>subtext</key>
+				<string>Load and start powd</string>
+				<key>text</key>
+				<string>load pow</string>
+				<key>withspace</key>
+				<false/>
+			</dict>
+			<key>type</key>
+			<string>alfred.workflow.input.keyword</string>
+			<key>uid</key>
+			<string>48F35404-5EBB-46E5-B31A-88077B8E0923</string>
+			<key>version</key>
+			<integer>0</integer>
+		</dict>
+		<dict>
+			<key>config</key>
+			<dict>
+				<key>escaping</key>
+				<integer>127</integer>
+				<key>script</key>
+				<string>require './alfred_pow'
+AlfredPow.load</string>
+				<key>type</key>
+				<integer>2</integer>
+			</dict>
+			<key>type</key>
+			<string>alfred.workflow.action.script</string>
+			<key>uid</key>
+			<string>2227C299-10BC-42A1-9E9E-FA82C867B644</string>
+			<key>version</key>
+			<integer>0</integer>
+		</dict>
+		<dict>
+			<key>config</key>
+			<dict>
+				<key>autopaste</key>
+				<false/>
+				<key>clipboardtext</key>
+				<string>{query}</string>
+			</dict>
+			<key>type</key>
+			<string>alfred.workflow.output.clipboard</string>
+			<key>uid</key>
+			<string>824CAAFC-6D29-4736-AF60-4BD96BEAE2EA</string>
+			<key>version</key>
+			<integer>0</integer>
+		</dict>
+		<dict>
+			<key>config</key>
+			<dict>
+				<key>escaping</key>
+				<integer>63</integer>
+				<key>script</key>
+				<string>require './alfred_pow.rb'
+AlfredPow.xip "{query}"</string>
+				<key>type</key>
+				<integer>2</integer>
+			</dict>
+			<key>type</key>
+			<string>alfred.workflow.action.script</string>
+			<key>uid</key>
+			<string>0A371D54-06AF-4896-A246-8A3F10638FC3</string>
+			<key>version</key>
+			<integer>0</integer>
 		</dict>
 		<dict>
 			<key>config</key>
@@ -364,7 +510,7 @@ AlfredPow.list "{query}"</string>
 				<key>runningsubtext</key>
 				<string>Loading results...</string>
 				<key>script</key>
-        <string>require './alfred_pow.rb'
+				<string>require './alfred_pow.rb'
 AlfredPow.list "{query}"</string>
 				<key>subtext</key>
 				<string>Copy xip.io URL to clipboard</string>
@@ -379,10 +525,15 @@ AlfredPow.list "{query}"</string>
 			<string>alfred.workflow.input.scriptfilter</string>
 			<key>uid</key>
 			<string>25E3DF98-2706-4D97-996C-E5839612AAFA</string>
+			<key>version</key>
+			<integer>0</integer>
 		</dict>
 	</array>
 	<key>readme</key>
-	<string></string>
+	<string>2014-05-09
+==========
+
+- (slumos) Added load/unload commands to manage powd and firewall rules.  Does not yet attempt to work with non-default installation paths or tcp ports.</string>
 	<key>uidata</key>
 	<dict>
 		<key>01048255-0B9F-4F8C-8F8C-4E82333BC482</key>
@@ -393,12 +544,27 @@ AlfredPow.list "{query}"</string>
 		<key>0A371D54-06AF-4896-A246-8A3F10638FC3</key>
 		<dict>
 			<key>ypos</key>
-			<real>490</real>
+			<real>730</real>
+		</dict>
+		<key>2227C299-10BC-42A1-9E9E-FA82C867B644</key>
+		<dict>
+			<key>ypos</key>
+			<real>610</real>
 		</dict>
 		<key>25E3DF98-2706-4D97-996C-E5839612AAFA</key>
 		<dict>
 			<key>ypos</key>
+			<real>730</real>
+		</dict>
+		<key>464C5AD2-ECA3-40AF-BADE-0B83AF464EF4</key>
+		<dict>
+			<key>ypos</key>
 			<real>490</real>
+		</dict>
+		<key>48F35404-5EBB-46E5-B31A-88077B8E0923</key>
+		<dict>
+			<key>ypos</key>
+			<real>610</real>
 		</dict>
 		<key>5ADA0A22-076F-495E-8398-1697183B0A20</key>
 		<dict>
@@ -423,7 +589,7 @@ AlfredPow.list "{query}"</string>
 		<key>824CAAFC-6D29-4736-AF60-4BD96BEAE2EA</key>
 		<dict>
 			<key>ypos</key>
-			<real>490</real>
+			<real>730</real>
 		</dict>
 		<key>86E80F71-3C4D-41A4-94DE-564940DB6272</key>
 		<dict>
@@ -444,6 +610,11 @@ AlfredPow.list "{query}"</string>
 		<dict>
 			<key>ypos</key>
 			<real>370</real>
+		</dict>
+		<key>EEF3BE1A-AC66-4FF3-A0B1-7D3F77C34EF9</key>
+		<dict>
+			<key>ypos</key>
+			<real>490</real>
 		</dict>
 	</dict>
 	<key>webaddress</key>

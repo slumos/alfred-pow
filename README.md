@@ -16,3 +16,4 @@ Features
 * Destroy app
 * Restart app
 * Copy Xip.io URL
+* Load/Unload powd and firewall rules
